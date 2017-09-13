@@ -1,10 +1,10 @@
-<article class="hreview open special">
+﻿<article class="hreview open special">
 	<?php if (empty($users)): ?>
 		<div class="dhd">
 			<h2 class="item title">Hoopla! Keine User gefunden.</h2>
 		</div>
 	<?php else: ?>
-		<?php foreach ($users as $user): ?>
+		<?php foreach ($usersCock as $user): ?>
 			<div class="panel panel-default">
 				<div class="panel-heading"><?= $user->firstName;?> <?= $user->lastName;?></div>
 				<div class="panel-body">
