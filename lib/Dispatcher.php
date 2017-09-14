@@ -52,6 +52,8 @@ class Dispatcher
 
         $args = array_slice($uriFragments, 2);
 
+        /*
+         *
         // Den gewünschten Controller laden
         //   Achtung! Hier stützt PHP ab, sollte der Controller nicht existieren
         require_once "../controller/$controllerName.php";
@@ -60,5 +62,7 @@ class Dispatcher
         //   Methode darauf aufgerufen.
         $controller = new $controllerName();
         $controller->$method();
+
+        */
     }
 }
