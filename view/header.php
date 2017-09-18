@@ -29,17 +29,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-			
+		
           </button>
 		  <img class="Logo" src="/images/dankLogo.png" alt="Bild Fehler!">
         </div>
         <div id="navbar" class="navibBar">
           <ul class="nav navbar-nav" id="naviBar">
 			<!--CSS Fehlt noch, konnte leider nicht eingebunden werden ausser mit Style -->
-            <li class="navBar"><a style="color: black;"class="navBar" href="/">Feed</a></li>
-            <li><a style="color: black;"href="/">Threads</a></li>
-			
+            <li class="navBar"><a style=""class="navBar" href="/">Feed</a></li>
+            <li><a class="blackCockDown" href="/">Threads</a></li>
+			<!--Suchfeld -->
 			<input id="searchBar"type="text" name="search" placeholder="Search..">
+			<!--Upload und Anmelden/Benutzer-Seite -->
 
 			<button id="UplAnm" class="glyphicon glyphicon-upload">
 			<button id="UplAnm2" class="glyphicon glyphicon-user">
