@@ -14,7 +14,7 @@ class UserController
         $view = new View('user_index');
         $view->title = 'Benutzer';
         $view->heading = 'Benutzer';
-        $view->users = $userRepository->readAll();
+        //$view->users = $userRepository->readAll();
         $view->display();
     }
 
@@ -36,7 +36,7 @@ class UserController
             $password = 'no_password';
 
             $userRepository = new UserRepository();
-            $userRepository->create($firstName, $lastName, $email, $password);
+            //$userRepository->create($firstName, $lastName, $email, $password);
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)

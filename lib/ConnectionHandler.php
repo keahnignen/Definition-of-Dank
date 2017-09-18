@@ -13,6 +13,9 @@
  *   // ...
  *   $connection = ConnectionHandler::getConnection();
  */
+
+use mysqli;
+
 class ConnectionHandler
 {
     /**
@@ -39,7 +42,7 @@ class ConnectionHandler
      *
      * @throws Exception wenn der Verbindungsaufbau schiefgegeangen ist.
      *
-     * @return Die MySQLi Verbindung, welche für den Zugriff aud die Datenbank
+     * @return \mysqli
      *             verwendet werden kann.
      */
     public static function getConnection()
@@ -55,7 +58,7 @@ class ConnectionHandler
             $database = $config['database']['database'];
 
             // Verbindung initialisieren
-            self::$connection = new MySQLi($host, $username, $password, $database);
+            self::$connection = mysqli_connect($host, $username, $password, $database);
             if (self::$connection->connect_error) {
                 $error = self::$connection->connect_error;
                 throw new Exception("Verbindungsfehler: $error");
@@ -63,6 +66,8 @@ class ConnectionHandler
 
             self::$connection->set_charset('utf8');
         }
+
+        // 3====D un dick, lol
 
         // Verbindung zurückgeben
         return self::$connection;
