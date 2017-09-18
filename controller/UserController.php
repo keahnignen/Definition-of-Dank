@@ -7,8 +7,17 @@ require_once '../repository/UserRepository.php';
  */
 class UserController
 {
+
     public function index()
     {
+        $this->create();
+    }
+
+    /*
+
+    public function index()
+    {
+        var_dump('daggisad');
         $userRepository = new UserRepository();
 
         $view = new View('user_index');
@@ -17,6 +26,8 @@ class UserController
         //$view->users = $userRepository->readAll();
         $view->display();
     }
+
+    */
 
     public function create()
     {
