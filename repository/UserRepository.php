@@ -32,11 +32,12 @@ class UserRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
-    public function create($username, $email, $password)
+    public function addUser($username, $email, $password)
     {
         $password = sha1($password);
 
-        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $
+
         $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
 
         if (!$statement->execute()) {

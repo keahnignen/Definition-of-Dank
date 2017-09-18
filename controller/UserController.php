@@ -10,7 +10,10 @@ class UserController
 
     public function index()
     {
-        $this->create();
+        $view = new View('user_index');
+        $view->title = 'Benutzer erstellen';
+        $view->heading = 'Benutzer erstellen';
+        $view->display();
     }
 
     /*
@@ -29,25 +32,27 @@ class UserController
 
     */
 
+
     public function create()
     {
-        $view = new View('user_index');
-        $view->title = 'Benutzer erstellen';
-        $view->heading = 'Benutzer erstellen';
-        $view->display();
-    }
 
-    public function doCreate()
-    {
+        $lentgh = Array(
+        $usernameLentgh = 20,
+        $passwordLentgh = 16,
+        $emailLentgh = 46
+    );
+
+
+
         if ($_POST['send']) {
-            $firstName = $_POST['firstName'];
-            $lastName = $_POST['lastName'];
+            $username = $_POST['username'];
             $email = $_POST['email'];
-            // $password  = $_POST['password'];
-            $password = 'no_password';
+            $password = $_POST['password'];
+
+
 
             $userRepository = new UserRepository();
-            //$userRepository->create($firstName, $lastName, $email, $password);
+            $userRepository->addUser($username, $email, $password);
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
