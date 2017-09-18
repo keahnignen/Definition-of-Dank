@@ -8,9 +8,7 @@
 
 class CommentModel
 {
-
     public $id;
     public $commentContent;
-
 
 }

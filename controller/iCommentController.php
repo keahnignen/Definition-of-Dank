@@ -12,6 +12,6 @@ interface iCommentController
     function getCommentById($commentId);
     function deleteCommentById($commentId);
     function updateCommentById($newCommentContent, $commentId);
-    function getAllCommentsByUserId($userId)
+    function getAllCommentsByUserId($userId);
 
 }
