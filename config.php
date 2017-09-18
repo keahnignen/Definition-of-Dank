@@ -7,8 +7,6 @@
  */
 
 
-<?php
-
 /*
 
  * Die Idee dieser Konfigurationsdateien ist, dass Konfigurationen, welche je

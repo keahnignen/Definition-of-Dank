@@ -74,6 +74,9 @@ require_once 'ConnectionHandler.php';
  *   }
  */
 
+
+use mysqli;
+
 class Repository
 {
     /**
@@ -82,15 +85,6 @@ class Repository
      * dem Tabellennamen überschrieben werden. (Siehe beispiel oben).
      */
     protected $tableName = null;
-
-    protected $db;
-
-
-    public function __construct()
-    {
-        $c = new ConnectionHandler();
-        $this->db = $c->getConnection();
-    }
 
     /**
      * Diese Funktion gibt den Datensatz mit der gegebenen id zurück.
@@ -102,10 +96,7 @@ class Repository
      * @return Der gesuchte Datensatz oder null, sollte dieser nicht existieren.
      */
 
-    /*
-     *
-     * CAUSE NO MYSQLI
-     *
+
     public function readById($id)
     {
         // Query erstellen
@@ -135,7 +126,7 @@ class Repository
         return $row;
     }
 
-    */
+
     /**
 
      *
@@ -150,11 +141,7 @@ class Repository
      * @return Ein array mit den gefundenen Datensätzen.
      */
 
-    /*
-     * $
-     *
-     *      * CAUSE NO MYSQLI
-     *
+
     public function readAll($max = 100)
     {
         $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
@@ -176,8 +163,8 @@ class Repository
         return $rows;
     }
 
-    */
-    /*
+
+    /**
      * Diese Funktion löscht den Datensatz mit der gegebenen id.
      *
      * @param $id id des zu löschenden Datensatzes
@@ -187,7 +174,7 @@ class Repository
      *
           * CAUSE NO MYSQLI
      *
-
+*/
     protected function deleteById($id)
     {
         $query = "DELETE FROM {$this->tableName} WHERE id=?";
@@ -200,36 +187,36 @@ class Repository
         }
     }
 
-     */
+
 
     /**
      * @param $select
      * @param $database
      * @param $where
      * @param $isEqual
-     * @return bool|null
+     * @return array
      */
     protected function select($select, $database, $where, $isEqual)
     {
-        $stmt = $this->db->prepare(`SELECT ? FROM ? WHERE ? = ?;`);
+        $stmt = ConnectionHandler::getConnection()->prepare( `SELECT ? FROM ? WHERE ? = ?;`);
         $stmt->bind_param('ssss', $select, $database, $where, $isEqual);
-        if (!$stmt->execute()) return false;
+        if (!$stmt->execute()) return null;
         $obj = [];
         $stmt->bind_result($obj);
-        if (!$stmt->mysqli_fetch_object()) return null;
+        if (!$stmt->fetch()) return null;
         return $obj;
     }
 
     protected function insert($tables, $values)
     {
-        $stmt = $this->db->prepare(`INSERT INTO ? VALUES ?;`);
+        $stmt = ConnectionHandler::getConnection()->prepare(`INSERT INTO ? VALUES ?;`);
         $stmt->bind_param('ss', $tables, $values);
         if (!$stmt->execute()) return false;
         return true;
     }
 
     public function update($table, $setName, $setValue, $whereName, $whereValue) {
-        $stmt = $this->db->prepare(`UPDATE ? SET ? = ? WHERE ? = ?`);
+        $stmt = ConnectionHandler::getConnection()->prepare(`UPDATE ? SET ? = ? WHERE ? = ?`);
         $stmt->bind_param('sssss', $table, $setName, $setValue, $whereName, $whereValue);
         if (!$stmt->execute()) return false;
         return true;
@@ -237,7 +224,7 @@ class Repository
 
     public function delete($table, $whereName, $whereValue)
     {
-        $stmt = $this->db->prepare(`DELETE FROM ? WHERE ? = ?`);
+        $stmt = ConnectionHandler::getConnection()->prepare(`DELETE FROM ? WHERE ? = ?`);
         $stmt->bind_param('sss', $table, $whereName, $whereValue);
         if (!$stmt->execute()) return false;
         return true;
