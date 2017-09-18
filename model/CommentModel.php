@@ -10,5 +10,8 @@ class CommentModel
 {
     public $id;
     public $commentContent;
+    public $userId;
+    public $date;
+    public $parentCommentId;
 
 }
