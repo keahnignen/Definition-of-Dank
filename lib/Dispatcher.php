@@ -37,12 +37,16 @@ class Dispatcher
         $uriFragments = explode('/', $uri); // In einzelteile zerlegen
 
         // Den Namen des gewünschten Controllers ermitteln
-        $controllerName = 'DefaultController';
+
         if (!empty($uriFragments[0])) {
             $controllerName = $uriFragments[0];
             $controllerName = ucfirst($controllerName); // Erstes Zeichen grossschreiben
             $controllerName .= 'Controller'; // "Controller" anhängen
         }
+
+
+        if (!isset($controllerName) || !file_exists(self::getFilePath($controllerName))) $controllerName = 'DefaultController';
+        require_once self::getFilePath($controllerName);
 
         // Den Namen der auszuführenden Methode ermitteln
         $method = 'index';
@@ -50,21 +54,30 @@ class Dispatcher
             $method = $uriFragments[1];
         }
 
-        $args = array_slice($uriFragments, 2);
+        if (!class_exists($controllerName)) $controllerName = 'DefaultController';
 
+
+        //$args = array_slice($uriFragments, 2); //Probaly a later Use
 
 
         // Den gewünschten Controller laden
         //   Achtung! Hier stützt PHP ab, sollte der Controller nicht existieren
-        require_once "../controller/$controllerName.php";
+
+        $controller = new $controllerName();
 
         // Eine neue Instanz des Controllers wird erstellt und die gewünschte
         //   Methode darauf aufgerufen.
 
+        if (!empty($uriFragments[1])) {
+            $method = $uriFragments[1];
+        }
 
-        $controller = new $controllerName();
+        if (!isset($method) || !method_exists($controller, $method)) $method = 'index';
         $controller->$method();
 
 
+
     }
+
+    private static function getFilePath($path) { return "../controller/$path.php"; }
 }
