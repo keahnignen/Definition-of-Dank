@@ -1,6 +1,10 @@
 <?php
 
+
+
 require_once '../lib/Repository.php';
+
+use mysqli;
 
 /**
  * Das UserRepository ist zuständig für alle Zugriffe auf die Tabelle "user".
@@ -28,11 +32,9 @@ class UserRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
-    public function create($firstName, $lastName, $email, $password)
+    public function create($username, $email, $password)
     {
         $password = sha1($password);
-
-        $query = "INSERT INTO $this->tableName (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
@@ -42,5 +44,17 @@ class UserRepository extends Repository
         }
 
         return $statement->insert_id;
+    }
+
+    public function getUserById($id)
+    {
+        if (is_numeric($id)) return null;
+        return $this->select('*', $this->tableName, 'id', $id);
+    }
+
+    public function deleteUser($id)
+    {
+        if (is_numeric($id)) return null;
+        return $this->delete($this->tableName, 'id', $id);
     }
 }

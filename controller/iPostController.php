@@ -8,5 +8,5 @@
 
 interface iPostController
 {
-    function createPost($picturePath, $userId, $);
+    function createPost($picturePath, $userId, $renameThaShit);
 }
