@@ -98,6 +98,9 @@ class UserController
     {
         if (isset($_POST['username']) && isset($_POST['password']))
         {
+
+            echo 'wrong username';
+
             $username = $_POST['username'];
             $password = $_POST['password'];
 
@@ -108,7 +111,8 @@ class UserController
         }
         else
         {
-            echo 'penis';
+            $this->register_login();
+            echo 'Login Failed';
         }
     }
 
