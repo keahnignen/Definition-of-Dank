@@ -41,7 +41,6 @@
 			<!--Suchfeld -->
 			<input id="searchBar"type="text" name="search" placeholder="Search..">
 			<!--Upload und Anmelden/Benutzer-Seite -->
-			<button id="UplAnm2" class="glyphicon glyphicon-upload">
 			<a href="/user"><i class="glyphicon glyphicon-user"></i></a>
 			
 			
