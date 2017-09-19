@@ -175,17 +175,6 @@ class Repository
           * CAUSE NO MYSQLI
      *
 */
-    protected function deleteById($id)
-    {
-        $query = "DELETE FROM {$this->tableName} WHERE id=?";
-
-        $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('i', $id);
-
-        if (!$statement->execute()) {
-            throw new Exception($statement->error);
-        }
-    }
 
 
 
@@ -196,6 +185,8 @@ class Repository
      * @param $isEqual
      * @return array
      */
+
+
     protected function select($select, $database, $where, $isEqual)
     {
         $stmt = ConnectionHandler::getConnection()->prepare( `SELECT ? FROM ? WHERE ? = ?;`);
@@ -207,10 +198,10 @@ class Repository
         return $obj;
     }
 
-    protected function insert($tables, $values)
+    protected function insert($tables, $attributes, $values)
     {
-        $stmt = ConnectionHandler::getConnection()->prepare(`INSERT INTO ? VALUES ?;`);
-        $stmt->bind_param('ss', $tables, $values);
+        $stmt = ConnectionHandler::getConnection()->prepare(`INSERT INTO ? ? VALUES ?;`);
+        $stmt->bind_param('sss', $tables, $attributes, $values);
         if (!$stmt->execute()) return false;
         return true;
     }

@@ -36,15 +36,26 @@ class UserRepository extends Repository
     {
         $password = sha1($password);
 
-        $
 
-        $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
+        $attr = '(name, password, email, ranking, isAdmin, isModerator, isActiv)';
+        $value = "({$username}, {$password}, {$email}, 0, false, false, false, true)";
 
-        if (!$statement->execute()) {
-            throw new Exception($statement->error);
+
+        if (!$this->insert($this->tableName, $attr, $value)) {
+            throw new Exception("Can't create a new User");
         }
 
-        return $statement->insert_id;
+        echo 'Create user was successfully';
+
+    }
+
+    public function login($username, $password)
+    {
+
+        if (sha1($password) === $this->select('password', $this->tableName, 'username', $username))
+        {
+            echo 'Login was successfully';
+        }
     }
 
     public function getUserById($id)
