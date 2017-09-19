@@ -4,7 +4,7 @@
 <div class="registerInner">
         <div class="col-md-6 signUp">
             <h3 class="headerSign">Sign Up</h3>
-            <form action="" method="post">
+            <form action="/user/create" method="get">
 
 
                 <div class="form-group">
@@ -21,7 +21,7 @@
                 </div>
 
 
-                <button type="submit" class=" signbuttons btn btn-primary">Sign Up</button> /user/create
+                <button type="submit" class=" signbuttons btn btn-primary">Sign Up</button>
 
             </form>
         </div>
@@ -29,8 +29,8 @@
              
              
         <div class ="col-md-6">
-            <h3 class="headerSign">Sign In</h3> /user/login
-            <form action="" method="">
+            <h3 class="headerSign">Sign In</h3> 
+            <form action="/user/login" method="post">
                 
                 <div class="form-group">                    
                     <input class="form-control" type="text" name="email" id="email" placeholder="YOUR EMAIL">
