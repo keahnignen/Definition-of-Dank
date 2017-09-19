@@ -9,6 +9,12 @@
 class ThreadController
 {
 
-
+    public function register_login()
+    {
+        $view = new View('thread');
+        $view->title = 'Categorys';
+        $view->heading = 'Catagroys';
+        $view->display();
+    }
 
 }
