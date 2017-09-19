@@ -79,7 +79,10 @@ class UserController
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            $this->userRepository->login($username, $password);
+            if ($this->userRepository->login($username, $password))
+            {
+
+            }
         }
     }
 }
