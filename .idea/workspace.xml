@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d2a6c48-ff42-433b-870d-92771c37dd24" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/ThreadController.php" afterPath="$PROJECT_DIR$/controller/ThreadController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/UserController.php" afterPath="$PROJECT_DIR$/controller/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/ConnectionHandler.php" afterPath="$PROJECT_DIR$/lib/ConnectionHandler.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Repository.php" afterPath="$PROJECT_DIR$/lib/Repository.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,21 +18,21 @@
       <file leaf-file-name="Repository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/Repository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="191" column="8" lean-forward="false" selection-start-line="191" selection-start-column="7" selection-end-line="191" selection-end-column="8" />
+            <state relative-caret-position="171">
+              <caret line="197" column="41" lean-forward="true" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
               <folding>
-                <marker date="1505805329399" expanded="true" signature="3808:3851" ph="SELECT * FRO... $" />
-                <marker date="1505805329399" expanded="true" signature="5023:5065" ph="SELECT * FRO... $" />
-                <marker date="1505805329399" expanded="true" signature="6463:6487" ph="INSERT INTO ?... " />
-                <marker date="1505805329399" expanded="true" signature="6469:6487" ph="SELECT ? FRO... ?" />
-                <marker date="1505805329399" expanded="true" signature="6774:6804" ph="UPDATE `pict... " />
-                <marker date="1505805329399" expanded="true" signature="7098:7123" ph="DELETE FROM " />
+                <marker date="1505821827646" expanded="true" signature="3808:3851" ph="SELECT * FRO... $" />
+                <marker date="1505821827646" expanded="true" signature="5023:5065" ph="SELECT * FRO... $" />
+                <marker date="1505821827646" expanded="true" signature="6462:6486" ph="INSERT INTO ?... " />
+                <marker date="1505821827646" expanded="true" signature="6468:6486" ph="SELECT ? FRO... ?" />
+                <marker date="1505821827646" expanded="true" signature="6772:6802" ph="UPDATE `pict... " />
+                <marker date="1505821827646" expanded="true" signature="7096:7121" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThreadController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ThreadController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/ThreadController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -40,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="60">
+              <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -90,8 +92,8 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1505820498111" expanded="true" signature="1940:2017" ph="..." />
-                <marker date="1505820498111" expanded="true" signature="2103:2113" ph="..." />
+                <marker date="1505821533378" expanded="true" signature="1940:2017" ph="..." />
+                <marker date="1505821533378" expanded="true" signature="2103:2113" ph="..." />
               </folding>
             </state>
           </provider>
@@ -110,18 +112,18 @@
       <file leaf-file-name="ConnectionHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/ConnectionHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+            <state relative-caret-position="351">
+              <caret line="60" column="76" lean-forward="true" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default_index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/default_index.php">
+      <file leaf-file-name="iCommentController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/iCommentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="9" column="626" lean-forward="true" selection-start-line="9" selection-start-column="626" selection-end-line="9" selection-end-column="626" />
+            <state relative-caret-position="165">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -151,7 +153,6 @@
         <option value="$PROJECT_DIR$/controller/iPostController.php" />
         <option value="$PROJECT_DIR$/controller/Threads.php" />
         <option value="$PROJECT_DIR$/config.php" />
-        <option value="$PROJECT_DIR$/lib/Repository.php" />
         <option value="$PROJECT_DIR$/controller/ThreadsController.php" />
         <option value="$PROJECT_DIR$/controller/FeedController.php" />
         <option value="$PROJECT_DIR$/view/default_index.php" />
@@ -159,9 +160,10 @@
         <option value="$PROJECT_DIR$/repository/PostRepository.php" />
         <option value="$PROJECT_DIR$/repository/UserRepository.php" />
         <option value="$PROJECT_DIR$/controller/UserAreaController.php" />
+        <option value="$PROJECT_DIR$/controller/ThreadController.php" />
+        <option value="$PROJECT_DIR$/lib/Repository.php" />
         <option value="$PROJECT_DIR$/lib/ConnectionHandler.php" />
         <option value="$PROJECT_DIR$/controller/UserController.php" />
-        <option value="$PROJECT_DIR$/controller/ThreadController.php" />
       </list>
     </option>
   </component>
@@ -303,12 +305,12 @@
       <updated>1505414155436</updated>
       <workItem from="1505414157721" duration="2925000" />
       <workItem from="1505731953689" duration="12402000" />
-      <workItem from="1505802457358" duration="11963000" />
+      <workItem from="1505802457358" duration="12906000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36951000" />
+    <option name="totallyTimeSpent" value="37894000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -341,7 +343,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/controller/UserController.php</url>
+          <line>77</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -491,12 +500,12 @@
         <state relative-caret-position="2760">
           <caret line="184" column="67" lean-forward="false" selection-start-line="184" selection-start-column="67" selection-end-line="184" selection-end-column="67" />
           <folding>
-            <marker date="1505805329399" expanded="true" signature="3808:3851" ph="SELECT * FRO... $" />
-            <marker date="1505805329399" expanded="true" signature="5023:5065" ph="SELECT * FRO... $" />
-            <marker date="1505805329399" expanded="true" signature="6463:6487" ph="INSERT INTO ?... " />
-            <marker date="1505805329399" expanded="true" signature="6469:6487" ph="SELECT ? FRO... ?" />
-            <marker date="1505805329399" expanded="true" signature="6774:6804" ph="UPDATE `pict... " />
-            <marker date="1505805329399" expanded="true" signature="7098:7123" ph="DELETE FROM " />
+            <marker date="1505821827646" expanded="true" signature="3808:3851" ph="SELECT * FRO... $" />
+            <marker date="1505821827646" expanded="true" signature="5023:5065" ph="SELECT * FRO... $" />
+            <marker date="1505821827646" expanded="true" signature="6462:6486" ph="INSERT INTO ?... " />
+            <marker date="1505821827646" expanded="true" signature="6468:6486" ph="SELECT ? FRO... ?" />
+            <marker date="1505821827646" expanded="true" signature="6772:6802" ph="UPDATE `pict... " />
+            <marker date="1505821827646" expanded="true" signature="7096:7121" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -593,14 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/iCommentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/FeedController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -668,7 +669,7 @@
     <entry file="file://$PROJECT_DIR$/view/default_index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="9" column="626" lean-forward="true" selection-start-line="9" selection-start-column="626" selection-end-line="9" selection-end-column="626" />
+          <caret line="9" column="629" lean-forward="true" selection-start-line="9" selection-start-column="629" selection-end-line="9" selection-end-column="629" />
           <folding />
         </state>
       </provider>
@@ -694,17 +695,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1505820498111" expanded="true" signature="1940:2017" ph="..." />
-            <marker date="1505820498111" expanded="true" signature="2103:2113" ph="..." />
+            <marker date="1505821533378" expanded="true" signature="1940:2017" ph="..." />
+            <marker date="1505821533378" expanded="true" signature="2103:2113" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/user_area.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -722,31 +715,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Repository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="191" column="8" lean-forward="false" selection-start-line="191" selection-start-column="7" selection-end-line="191" selection-end-column="8" />
+        <state relative-caret-position="171">
+          <caret line="197" column="41" lean-forward="true" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
           <folding>
-            <marker date="1505805329399" expanded="true" signature="3808:3851" ph="SELECT * FRO... $" />
-            <marker date="1505805329399" expanded="true" signature="5023:5065" ph="SELECT * FRO... $" />
-            <marker date="1505805329399" expanded="true" signature="6463:6487" ph="INSERT INTO ?... " />
-            <marker date="1505805329399" expanded="true" signature="6469:6487" ph="SELECT ? FRO... ?" />
-            <marker date="1505805329399" expanded="true" signature="6774:6804" ph="UPDATE `pict... " />
-            <marker date="1505805329399" expanded="true" signature="7098:7123" ph="DELETE FROM " />
+            <marker date="1505821827646" expanded="true" signature="3808:3851" ph="SELECT * FRO... $" />
+            <marker date="1505821827646" expanded="true" signature="5023:5065" ph="SELECT * FRO... $" />
+            <marker date="1505821827646" expanded="true" signature="6462:6486" ph="INSERT INTO ?... " />
+            <marker date="1505821827646" expanded="true" signature="6468:6486" ph="SELECT ? FRO... ?" />
+            <marker date="1505821827646" expanded="true" signature="6772:6802" ph="UPDATE `pict... " />
+            <marker date="1505821827646" expanded="true" signature="7096:7121" ph="DELETE FROM " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/user_area.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/ConnectionHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+        <state relative-caret-position="351">
+          <caret line="60" column="76" lean-forward="true" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/UserController.php">
+    <entry file="file://$PROJECT_DIR$/controller/iCommentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="35" selection-end-column="5" />
+        <state relative-caret-position="165">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -755,6 +756,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
           <folding />
         </state>
       </provider>

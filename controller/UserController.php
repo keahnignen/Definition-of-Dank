@@ -70,7 +70,11 @@ class UserController
             $password = 16
         );
 
-        if ($_POST['submit']) {
+        if (isset($_POST['username'], $_POST['email'], $_POST['password']))
+        {
+            var_dump('sag');
+            die();
+
             $posts = Array(
                 $username = $_POST['username'],
                 $email = $_POST['email'],
@@ -88,6 +92,11 @@ class UserController
             }
             $this->userRepository->addUser($username, $email, $password);
             header('Location: /userArea');
+        }
+        else
+        {
+            var_dump('sagasdas');
+            die();
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
