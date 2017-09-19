@@ -49,6 +49,7 @@ class UserRepository extends Repository
 
     public function loginSuccesfully($username, $password)
     {
+        var_dump($username);
         return (sha1($password) === $this->select('password', $this->tableName, 'username', $username)) ? true : false;
     }
 

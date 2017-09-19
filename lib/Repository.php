@@ -187,21 +187,38 @@ class Repository
 
     protected function select($select, $database, $where, $isEqual)
     {
-        $stmt = mysqli_stmt_init();
-        $querry = `SELECT ? FROM ? WHERE ? = ?;`;
-        $stmt->prepare($querry);
-        $stmt->bind_param('ssss', $select, $database, $where, $isEqual);
-        if (!$stmt->execute()) return null;
-        $obj = [];
-        $stmt->bind_result($obj);
-        if (!$stmt->fetch()) return null;
-        return $obj;
+        $db = ConnectionHandler::getConnection();
+        $query = "SELECT ? FROM {$database} WHERE ? = ?";
+        var_dump($query);
+        $stmt = $db->prepare($query);
+
+        if ($stmt == false)
+        {
+            $GLOBALS['error'] = 'db->prepare error';
+            echo 'error_fukinh prepare';
+        }
+        else{
+            $stmt->bind_param('sss', $select, $where, $isEqual);
+            if (!$stmt->execute()) return null;
+            $obj = [];
+            $stmt->bind_result($obj);
+            if (!$stmt->fetch()) return null;
+            return $obj;
+        }
+
+/*
+        $query = "SELECT ? FROM ? WHERE `?` = `?`";
+        var_dump($isEqual);
+        $stmt = $db->prepare($query);
+         var_dump($query);
+        */
+
     }
 
-    protected function insert($tables, $attributes, $values)
+    protected function insert($database, $tables, $attributes, $values)
     {
-        $query = `INSERT INTO ? ? VALUES ?;`;
-        $stmt = ConnectionHandler::getConnection()->prepare($query);
+        $db = ConnectionHandler::getConnection();
+        $stmt = $db->prepare("INSERT INTO {$tables} ");
         $stmt->bind_param('ssss', $this->tableName, $tables, $attributes, $values);
         if (!$stmt->execute()) return null;
         return true;

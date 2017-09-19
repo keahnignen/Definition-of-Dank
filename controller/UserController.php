@@ -83,17 +83,29 @@ class UserController
     public function login()
     {
 
-        if (isset($_POST['username']) && isset($_POST['password']))
+        $userKey = 'username';
+        $passwordKey = 'password';
+
+        if (isset($_POST[$userKey]) && isset($_POST[$passwordKey]))
         {
-            $posts = Array(
-                'username' => $_POST['username'],
-                'password' => $_POST['password']
+
+            $username = $_POST[$userKey];
+            $password = $_POST[$passwordKey];
+
+            $postList = array (
+                $userKey => $username,
+                $passwordKey => $password
             );
 
-            if (!$this->arePostValid($posts)) return;
+            var_dump($postList[$userKey]);
+            var_dump($postList[$passwordKey]);
+
+            if (!$this->arePostValid($postList)) return;
 
 
-            if ($this->userRepository->loginSuccesfully(post['username'], post['password']))
+
+
+            if ($this->userRepository->loginSuccesfully($postList[$userKey], $postList[$passwordKey]))
             {
 
                 var_dump('succes');

@@ -83,8 +83,8 @@ class View
         extract($this->properties);
 
         require './../view/header.php';
-        require $this->viewfile;
         require './../view/error.php';
+        require $this->viewfile;
         require './../view/footer.php';
     }
 }
