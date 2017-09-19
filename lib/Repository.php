@@ -189,7 +189,8 @@ class Repository
 
     protected function select($select, $database, $where, $isEqual)
     {
-        $stmt = ConnectionHandler::getConnection()->prepare( `SELECT ? FROM ? WHERE ? = ?;`);
+        $stmt = mysqli_stmt_init();
+        $stmt->prepare( `SELECT ? FROM ? WHERE ? = ?;`);
         $stmt->bind_param('ssss', $select, $database, $where, $isEqual);
         if (!$stmt->execute()) return null;
         $obj = [];
@@ -207,7 +208,8 @@ class Repository
     }
 
     public function update($table, $setName, $setValue, $whereName, $whereValue) {
-        $stmt = ConnectionHandler::getConnection()->prepare(`UPDATE ? SET ? = ? WHERE ? = ?`);
+        $stmt = mysqli_stmt_init();
+        $stmt->prepare(`UPDATE ? SET ? = ? WHERE ? = ?`);
         $stmt->bind_param('sssss', $table, $setName, $setValue, $whereName, $whereValue);
         if (!$stmt->execute()) return false;
         return true;

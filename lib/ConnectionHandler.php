@@ -67,8 +67,6 @@ class ConnectionHandler
             //self::$connection->set_charset('utf8');
         }
 
-        // 3====D un dick, lol
-
         // Verbindung zurückgeben
         return self::$connection;
     }
