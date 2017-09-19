@@ -96,7 +96,8 @@ class UserController
 
     public function login()
     {
-        if (isset($_POST['submit'])) {
+        if (isset($_POST['username']) && isset($_POST['password']))
+        {
             $username = $_POST['username'];
             $password = $_POST['password'];
 
@@ -108,7 +109,6 @@ class UserController
         else
         {
             echo 'penis';
-            
         }
     }
 
