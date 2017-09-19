@@ -39,9 +39,6 @@ class UserRepository extends Repository
         $value = "('{$username}', '{$password}', '{$email}', 0)";
 
 
-        var_dump($attr);
-        var_dump($value);
-
         if (!$this->insert($this->tableName, $attr, $value)) {
             throw new Exception("Can't create a new User");
         }

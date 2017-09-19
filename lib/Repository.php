@@ -200,18 +200,11 @@ class Repository
 
     protected function insert($tables, $attributes, $values)
     {
-        $querry = `SELECT ? FROM ? WHERE ? = ?;`;
-        if ($stmt = ConnectionHandler::getConnection()->prepare($querry))
-        {
-            $stmt->bind_param('sss', $tables, $attributes, $values);
-            if (!$stmt->execute()) return false;
-            return true;
-        }
-        else
-        {
-            var_dump('error_no_connection');
-            die();
-        }
+        $query = `INSERT INTO ? ? VALUES ?;`;
+        $stmt = ConnectionHandler::getConnection()->prepare($query);
+        $stmt->bind_param('ssss', $this->tableName, $tables, $attributes, $values);
+        if (!$stmt->execute()) return null;
+        return true;
     }
 
     public function update($table, $setName, $setValue, $whereName, $whereValue) {
