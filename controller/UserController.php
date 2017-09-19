@@ -65,19 +65,53 @@ class UserController
 
     public function create()
     {
-        if (isset($_POST['username'], $_POST['email'], $_POST['password']))
-        {
+        $userKey = 'username';
+        $passwordKey = 'password';
+        $emailKey = 'email';
 
-            $this->userRepository->addUser($username, $email, $password);
-            header('Location: /userArea');
+        if (isset($_POST[$userKey]) && isset($_POST[$passwordKey]) && isset($_POST[$emailKey])) {
+            $username = $_POST[$userKey];
+            $password = $_POST[$passwordKey];
+            $email = $_POST[$emailKey];
+
+            $postList = array(
+                $userKey => $username,
+                $passwordKey => $password,
+                $emailKey => $email,
+            );
+
+
+            if (!$this->arePostValid($postList)) {
+                return;
+            }
+
+
+
+            
+
+            if ($this->userRepository->isUsernameTaken($username)) {
+                $this->register_login();
+                //$this->goToLoginWithError('Username is Taken');
+                return;
+            }
+
+            if ($this->userRepository->isEmailTaken($email)) {
+                //$this->goToLoginWithError('Email is Takesdn');
+                return;
+            }
+
+            if ($this->userRepository->addUser($postList[$userKey], $postList[$passwordKey], $postList[$emailKey])) {
+                $GLOBALS['error'] = 'accout was succesfully created';
+                $this->setSessionId($username);
+                $this->index();
+            } else {
+                $this->goToLoginWithError('Cant create a Accout');
+            }
+
+        } else {
+            $this->goToLoginWithError('post variables does not exist');
         }
-        else
-        {
 
-        }
-
-        // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
     }
 
     public function login()
@@ -103,28 +137,30 @@ class UserController
             if (!$this->arePostValid($postList)) return;
 
 
-
-
             if ($this->userRepository->loginSuccesfully($postList[$userKey], $postList[$passwordKey]))
             {
-
-                var_dump('succes');
-               $this->setSessionId();
-               return;
+                $this->setSessionId();
+                $this->index();
             }
             else
             {
-                var_dump('notsucces');
+                $this->goToLoginWithError('The password or the username was wrong');
             }
 
-            var_dump('asdas');
         }
         else
         {
-            $this->register_login('Input doesnt Exist');
+            $this->goToLoginWithError('post variables does not exist');
         }
     }
 
+
+
+    private function goToLoginWithError($error)
+    {
+        $GLOBALS['error'] = $error;
+        $this->register_login();
+    }
 
     public function isValid($string)
     {
@@ -140,6 +176,8 @@ class UserController
 
     private function arePostValid($posts)
     {
+
+
         foreach ($posts as $key => $value)
         {
             if (!$this->isValid($value))

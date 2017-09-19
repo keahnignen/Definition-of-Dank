@@ -189,13 +189,13 @@ class Repository
     {
         $db = ConnectionHandler::getConnection();
         $query = "SELECT ? FROM {$database} WHERE ? = ?";
-        var_dump($query);
         $stmt = $db->prepare($query);
 
         if ($stmt == false)
         {
             $GLOBALS['error'] = 'db->prepare error';
             echo 'error_fukinh prepare';
+            die();
         }
         else{
             $stmt->bind_param('sss', $select, $where, $isEqual);
@@ -203,6 +203,8 @@ class Repository
             $obj = [];
             $stmt->bind_result($obj);
             if (!$stmt->fetch()) return null;
+            var_dump($obj);
+            die();
             return $obj;
         }
 
@@ -215,11 +217,22 @@ class Repository
 
     }
 
-    protected function insert($database, $tables, $attributes, $values)
+    protected function insert($tables, $attributes, $values)
     {
         $db = ConnectionHandler::getConnection();
-        $stmt = $db->prepare("INSERT INTO {$tables} ");
-        $stmt->bind_param('ssss', $this->tableName, $tables, $attributes, $values);
+        $stmt = $db->prepare("INSERT INTO {$tables} ? VALUES ?");
+
+
+        if ($stmt == false)
+        {
+            $GLOBALS['error'] = 'db->prepare error';
+            echo 'error_fuking prepare';
+        }
+        else
+        {
+            $stmt->bind_param('ss', $attributes, $values);
+        }
+
         if (!$stmt->execute()) return null;
         return true;
     }
