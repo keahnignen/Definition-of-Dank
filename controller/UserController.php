@@ -17,9 +17,30 @@ class UserController
 
     public function index()
     {
+        if (isset($_SESSION['userId']))
+        {
+            $this->user_area();
+        }
+        else
+        {
+            $this->register_login();
+        }
+    }
+
+    public function register_login()
+    {
         $view = new View('user_index');
         $view->title = 'Register and Login';
         $view->heading = 'Register and Login';
+        $view->display();
+    }
+
+
+    public function user_area()
+    {
+        $view = new View('User_Area');
+        $view->title = 'User Area';
+        $view->heading = 'User Area';
         $view->display();
     }
 
@@ -49,7 +70,7 @@ class UserController
             $password = 16
         );
 
-        if ($_POST['send']) {
+        if ($_POST['submit']) {
             $posts = Array(
                 $username = $_POST['username'],
                 $email = $_POST['email'],
@@ -75,14 +96,20 @@ class UserController
 
     public function login()
     {
-        if ($_POST['send']) {
+        if ($_POST['submit']) {
             $username = $_POST['username'];
             $password = $_POST['password'];
 
             if ($this->userRepository->login($username, $password))
             {
-
+               $this->setSessionId();
             }
         }
+    }
+
+
+    private function setSessionId($username)
+    {
+        $_SESSION['userId'] = $this->userRepository->getUserIdByUsername($username);
     }
 }

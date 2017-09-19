@@ -69,4 +69,9 @@ class UserRepository extends Repository
         if (is_numeric($id)) return null;
         return $this->delete($this->tableName, 'id', $id);
     }
+
+    public function getUserIdByUsername($username)
+    {
+        return $this->select('id', $this->tableName, 'username', $username);
+    }
 }
