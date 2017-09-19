@@ -8,5 +8,12 @@
 
 class FeedController
 {
+    public function index()
+    {
+        $view = new View('feed');
+        $view->title = 'Feed';
+        $view->heading = 'Feed';
+        $view->display();
+    }
 
 }

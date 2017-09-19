@@ -8,11 +8,18 @@ require_once '../repository/UserRepository.php';
 class UserController
 {
 
+    private $userRepository;
+
+    public function __construct()
+    {
+        $this->userRepository = new UserRepository();
+    }
+
     public function index()
     {
         $view = new View('user_index');
-        $view->title = 'Benutzer erstellen';
-        $view->heading = 'Benutzer erstellen';
+        $view->title = 'Register and Login';
+        $view->heading = 'Register and Login';
         $view->display();
     }
 
@@ -37,34 +44,42 @@ class UserController
     {
 
         $lentgh = Array(
-        $usernameLentgh = 20,
-        $passwordLentgh = 16,
-        $emailLentgh = 46
-    );
-
-
+            $username = 20,
+            $email = 46,
+            $password = 16
+        );
 
         if ($_POST['send']) {
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $posts = Array(
+                $username = $_POST['username'],
+                $email = $_POST['email'],
+                $password = $_POST['password']
+            );
 
 
-
-            $userRepository = new UserRepository();
-            $userRepository->addUser($username, $email, $password);
+            foreach ($posts as $key => $value)
+            {
+                if (strlen($value) > $lentgh[$key])
+                {
+                    echo "The Input {$key} is too long";
+                    return null;
+                }
+            }
+            $this->userRepository->addUser($username, $email, $password);
+            header('Location: /userArea');
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
         header('Location: /user');
     }
 
-    public function delete()
+    public function login()
     {
-        $userRepository = new UserRepository();
-        $userRepository->deleteById($_GET['id']);
+        if ($_POST['send']) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
 
-        // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
+            $this->userRepository->login($username, $password);
+        }
     }
 }
