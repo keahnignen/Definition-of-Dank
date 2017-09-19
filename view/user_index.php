@@ -4,7 +4,7 @@
 <div class="registerInner">
         <div class="col-md-6 signUp">
             <h3 class="headerSign">Sign Up</h3>
-            <form action="/view/user_area.php" method="get">
+            <form action="/view/create" method="post">
 
 
                 <div class="form-group">
@@ -30,14 +30,12 @@
              
         <div class ="col-md-6">
             <h3 class="headerSign">Sign In</h3> 
-            <form action="/user/create" method="post">
+            <form action="/user/login" method="post">
                 
                 <div class="form-group">                    
                     <input class="form-control" type="text" name="username" id="username" placeholder="USERNAME">
                 </div>
 				                
-            </form>
-            <form action="/user/login" method="post">
                 <div class="form-group">
                     <input class="form-control" type="password" name="password" id="password" placeholder="PASSWORD" value="">
                 </div>
