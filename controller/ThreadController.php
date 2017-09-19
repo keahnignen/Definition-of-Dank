@@ -9,7 +9,7 @@
 class ThreadController
 {
 
-    public function register_login()
+    public function index()
     {
         $view = new View('thread');
         $view->title = 'Categorys';
