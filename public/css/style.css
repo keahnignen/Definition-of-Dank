@@ -260,7 +260,7 @@ li { list-style-type:none;}
 }
 
 .text{
-	padding-right: 485px;
+	padding-right: 700px;
 }
 
 .border{
@@ -269,19 +269,23 @@ li { list-style-type:none;}
 
 .wit{
 	
-	
+	float: right;
+    margin-right: 700px;
 	width:400px;
-	
+   margin-bottom: 20px;
 }                
                  
 .wit2{           
 	width:400px;
+	margin-bottom: 20px;
 	
 }                
                  
 .wit3{        
 	
 	width:400px;
+	float: right;
+    margin-right: 700px;
 	
 }                 
                   
@@ -291,5 +295,13 @@ li { list-style-type:none;}
 }
 
 .thbilder{
-	width:300px;
+	height: 275px;
+	width:400px;
+	margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.thpost1{
+	float: left;
 }

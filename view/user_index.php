@@ -13,7 +13,7 @@
 
 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="email" id="email" placeholder="YOUR EMAIL">
+                    <input class="form-control" type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="YOUR EMAIL">
                 </div>
 
                 <div class="form-group ">
