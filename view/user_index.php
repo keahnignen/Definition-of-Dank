@@ -4,16 +4,14 @@
 <div class="registerInner">
         <div class="col-md-6 signUp">
             <h3 class="headerSign">Sign Up</h3>
-            <form action="" method="post">
+            <form action="/user/create" method="get">
 
 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name" id="name" placeholder="NAME">
+                    <input class="form-control" type="text" name="username" id="username" placeholder="USERNAME">
                 </div>
 
-                <div class="form-group">
-                    <input class="form-control" type="text" name="surname" id="surname" placeholder="SURNAME">
-                </div>
+
                 <div class="form-group">
                     <input class="form-control" type="text" name="email" id="email" placeholder="YOUR EMAIL">
                 </div>
@@ -21,10 +19,7 @@
                 <div class="form-group ">
                     <input class="form-control" type="password" name="password" id="password" value="" placeholder="PASSWORD">
                 </div>
-                <div class="form-group">
-                    <label for="birthday" class="darktext">Birthday</label>
-                    <input class="form-control" type="date" name="birthday" id="birthday" value="">
-                </div>
+
 
                 <button type="submit" class=" signbuttons btn btn-primary">Sign Up</button>
 
@@ -34,8 +29,8 @@
              
              
         <div class ="col-md-6">
-            <h3 class="headerSign">Sign In</h3>
-            <form action="" method="">
+            <h3 class="headerSign">Sign In</h3> 
+            <form action="/user/login" method="post">
                 
                 <div class="form-group">                    
                     <input class="form-control" type="text" name="email" id="email" placeholder="YOUR EMAIL">
