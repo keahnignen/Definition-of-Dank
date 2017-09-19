@@ -96,7 +96,7 @@ class UserController
 
     public function login()
     {
-        if ($_POST['submit']) {
+        if (isset($_POST['submit'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
 
@@ -104,6 +104,11 @@ class UserController
             {
                $this->setSessionId();
             }
+        }
+        else
+        {
+            echo 'penis';
+            
         }
     }
 
