@@ -64,7 +64,7 @@ class ConnectionHandler
                 throw new Exception("Verbindungsfehler: $error");
             }
 
-            self::$connection->set_charset('utf8');
+            //self::$connection->set_charset('utf8');
         }
 
         // 3====D un dick, lol
