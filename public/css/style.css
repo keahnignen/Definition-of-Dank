@@ -291,5 +291,13 @@ li { list-style-type:none;}
 }
 
 .thbilder{
-	width:300px;
+	height: 275px;
+	width:400px;
+	margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.thpost1{
+	float: left;
 }
