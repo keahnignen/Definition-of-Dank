@@ -75,8 +75,6 @@ require_once 'ConnectionHandler.php';
  */
 
 
-use mysqli;
-
 class Repository
 {
     /**
@@ -190,7 +188,8 @@ class Repository
     protected function select($select, $database, $where, $isEqual)
     {
         $stmt = mysqli_stmt_init();
-        $stmt->prepare( `SELECT ? FROM ? WHERE ? = ?;`);
+        $querry = `SELECT ? FROM ? WHERE ? = ?;`;
+        $stmt->prepare($querry);
         $stmt->bind_param('ssss', $select, $database, $where, $isEqual);
         if (!$stmt->execute()) return null;
         $obj = [];
@@ -201,15 +200,22 @@ class Repository
 
     protected function insert($tables, $attributes, $values)
     {
-        $stmt = ConnectionHandler::getConnection()->prepare(`INSERT INTO ? ? VALUES ?;`);
-        $stmt->bind_param('sss', $tables, $attributes, $values);
-        if (!$stmt->execute()) return false;
-        return true;
+        $querry = `SELECT ? FROM ? WHERE ? = ?;`;
+        if ($stmt = ConnectionHandler::getConnection()->prepare($querry))
+        {
+            $stmt->bind_param('sss', $tables, $attributes, $values);
+            if (!$stmt->execute()) return false;
+            return true;
+        }
+        else
+        {
+            var_dump('error_no_connection');
+            die();
+        }
     }
 
     public function update($table, $setName, $setValue, $whereName, $whereValue) {
-        $stmt = mysqli_stmt_init();
-        $stmt->prepare(`UPDATE ? SET ? = ? WHERE ? = ?`);
+        $stmt = ConnectionHandler::getConnection()->prepare(`UPDATE ? SET ? = ? WHERE ? = ?`);
         $stmt->bind_param('sssss', $table, $setName, $setValue, $whereName, $whereValue);
         if (!$stmt->execute()) return false;
         return true;
@@ -217,7 +223,8 @@ class Repository
 
     public function delete($table, $whereName, $whereValue)
     {
-        $stmt = ConnectionHandler::getConnection()->prepare(`DELETE FROM ? WHERE ? = ?`);
+        $stmt = mysqli_stmt_init();
+        $stmt->prepare(`DELETE FROM ? WHERE ? = ?`);
         $stmt->bind_param('sss', $table, $whereName, $whereValue);
         if (!$stmt->execute()) return false;
         return true;

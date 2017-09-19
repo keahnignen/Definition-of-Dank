@@ -4,8 +4,6 @@
 
 require_once '../lib/Repository.php';
 
-use mysqli;
-
 /**
  * Das UserRepository ist zuständig für alle Zugriffe auf die Tabelle "user".
  *
@@ -37,9 +35,12 @@ class UserRepository extends Repository
         $password = sha1($password);
 
 
-        $attr = '(name, password, email, ranking, isAdmin, isModerator, isActiv)';
-        $value = "({$username}, {$password}, {$email}, 0, false, false, false, true)";
+        $attr = '(name, password, email, isAdmin)';
+        $value = "('{$username}', '{$password}', '{$email}', 0)";
 
+
+        var_dump($attr);
+        var_dump($value);
 
         if (!$this->insert($this->tableName, $attr, $value)) {
             throw new Exception("Can't create a new User");

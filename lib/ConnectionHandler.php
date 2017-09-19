@@ -14,7 +14,6 @@
  *   $connection = ConnectionHandler::getConnection();
  */
 
-use mysqli;
 
 class ConnectionHandler
 {
@@ -58,10 +57,10 @@ class ConnectionHandler
             $database = $config['database']['database'];
 
             // Verbindung initialisieren
-            self::$connection = mysqli_connect($host, $username, $password, $database);
-            if (self::$connection->connect_error) {
-                $error = self::$connection->connect_error;
-                throw new Exception("Verbindungsfehler: $error");
+            self::$connection = new MySQLi($host, $username, $password, $database);
+            if (mysqli_connect_errno()) {
+                var_dump('connection_error');
+                die();
             }
 
             //self::$connection->set_charset('utf8');

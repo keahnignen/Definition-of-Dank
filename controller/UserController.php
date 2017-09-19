@@ -5,6 +5,8 @@ require_once '../repository/UserRepository.php';
 /**
  * Siehe Dokumentation im DefaultController.
  */
+
+
 class UserController
 {
 
@@ -72,8 +74,6 @@ class UserController
 
         if (isset($_POST['username'], $_POST['email'], $_POST['password']))
         {
-            var_dump('sag');
-            die();
 
             $posts = Array(
                 $username = $_POST['username'],
@@ -95,8 +95,7 @@ class UserController
         }
         else
         {
-            var_dump('sagasdas');
-            die();
+
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
@@ -129,5 +128,15 @@ class UserController
     private function setSessionId($username)
     {
         $_SESSION['userId'] = $this->userRepository->getUserIdByUsername($username);
+    }
+
+    private function isUsernameTaken()
+    {
+
+    }
+
+    private function isEmailTaken()
+    {
+
     }
 }

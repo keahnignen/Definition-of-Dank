@@ -54,7 +54,7 @@ return array(
 
         'password' => '',
 
-        'database' => 'defintion-of-dank',
+        'database' => 'definition-of-dank',
 
     ),
 
