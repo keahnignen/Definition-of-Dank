@@ -4,7 +4,7 @@
 <div class="registerInner">
         <div class="col-md-6 signUp">
             <h3 class="headerSign">Sign Up</h3>
-            <form action="/view/create" method="post">
+            <form action="/user/create" method="post">
 
 
                 <div class="form-group">
