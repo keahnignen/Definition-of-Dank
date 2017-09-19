@@ -11,9 +11,7 @@
                     <input class="form-control" type="text" name="name" id="name" placeholder="NAME">
                 </div>
 
-                <div class="form-group">
-                    <input class="form-control" type="text" name="surname" id="surname" placeholder="SURNAME">
-                </div>
+                
                 <div class="form-group">
                     <input class="form-control" type="text" name="email" id="email" placeholder="YOUR EMAIL">
                 </div>
@@ -21,10 +19,7 @@
                 <div class="form-group ">
                     <input class="form-control" type="password" name="password" id="password" value="" placeholder="PASSWORD">
                 </div>
-                <div class="form-group">
-                    <label for="birthday" class="darktext">Birthday</label>
-                    <input class="form-control" type="date" name="birthday" id="birthday" value="">
-                </div>
+                
 
                 <button type="submit" class=" signbuttons btn btn-primary">Sign Up</button>
 
@@ -56,3 +51,5 @@
 </div>
         
 </div>
+
+

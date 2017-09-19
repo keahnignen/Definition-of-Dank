@@ -8,12 +8,10 @@
 
 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name" id="name" placeholder="NAME">
+                    <input class="form-control" type="text" name="username" id="username" placeholder="USERNAME">
                 </div>
 
-                <div class="form-group">
-                    <input class="form-control" type="text" name="surname" id="surname" placeholder="SURNAME">
-                </div>
+
                 <div class="form-group">
                     <input class="form-control" type="text" name="email" id="email" placeholder="YOUR EMAIL">
                 </div>
@@ -21,12 +19,9 @@
                 <div class="form-group ">
                     <input class="form-control" type="password" name="password" id="password" value="" placeholder="PASSWORD">
                 </div>
-                <div class="form-group">
-                    <label for="birthday" class="darktext">Birthday</label>
-                    <input class="form-control" type="date" name="birthday" id="birthday" value="">
-                </div>
 
-                <button type="submit" class=" signbuttons btn btn-primary">Sign Up</button>
+
+                <button type="submit" class=" signbuttons btn btn-primary">Sign Up</button> /user/create
 
             </form>
         </div>
@@ -34,7 +29,7 @@
              
              
         <div class ="col-md-6">
-            <h3 class="headerSign">Sign In</h3>
+            <h3 class="headerSign">Sign In</h3> /user/login
             <form action="" method="">
                 
                 <div class="form-group">                    
