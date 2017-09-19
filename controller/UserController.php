@@ -65,31 +65,9 @@ class UserController
 
     public function create()
     {
-
-        $lentgh = Array(
-            $username = 20,
-            $email = 46,
-            $password = 16
-        );
-
         if (isset($_POST['username'], $_POST['email'], $_POST['password']))
         {
 
-            $posts = Array(
-                $username = $_POST['username'],
-                $email = $_POST['email'],
-                $password = $_POST['password']
-            );
-
-
-            foreach ($posts as $key => $value)
-            {
-                if (strlen($value) > $lentgh[$key])
-                {
-                    echo "The Input {$key} is too long";
-                    return null;
-                }
-            }
             $this->userRepository->addUser($username, $email, $password);
             header('Location: /userArea');
         }
@@ -104,24 +82,42 @@ class UserController
 
     public function login()
     {
+
         if (isset($_POST['username']) && isset($_POST['password']))
         {
+            $posts = Array(
+                'username' => $_POST['username'],
+                'password' => $_POST['password']
+            );
 
-            echo 'wrong username';
+            if (!$this->arePostValid($posts)) return;
 
-            $username = $_POST['username'];
-            $password = $_POST['password'];
 
-            if ($this->userRepository->login($username, $password))
+            if ($this->userRepository->loginSuccesfully(post['username'], post['password']))
             {
+
+                var_dump('succes');
                $this->setSessionId();
+               return;
             }
+            else
+            {
+                var_dump('notsucces');
+            }
+
+            var_dump('asdas');
         }
         else
         {
-            $this->register_login();
-            echo 'Login Failed';
+            $this->register_login('Input doesnt Exist');
         }
+    }
+
+
+    public function isValid($string)
+    {
+        $length = 50;
+        return  (!empty($string) && strlen($string) < $length) ? true : false;
     }
 
 
@@ -130,13 +126,20 @@ class UserController
         $_SESSION['userId'] = $this->userRepository->getUserIdByUsername($username);
     }
 
-    private function isUsernameTaken()
+    private function arePostValid($posts)
     {
+        foreach ($posts as $key => $value)
+        {
+            if (!$this->isValid($value))
+            {
+                $GLOBALS['error'] = "It occurred an error with the Field {$key}";
+                $this->register_login();
+                return false;
+            }
+        }
+        return true;
 
     }
 
-    private function isEmailTaken()
-    {
 
-    }
 }

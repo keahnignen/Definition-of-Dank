@@ -66,7 +66,7 @@ class View
 
     public function __set($key, $value)
     {
-        if (!isset($this->$key)) {
+        if (!isset($this->key)) {
             $this->properties[$key] = $value;
         }
     }
@@ -84,6 +84,7 @@ class View
 
         require './../view/header.php';
         require $this->viewfile;
+        require './../view/error.php';
         require './../view/footer.php';
     }
 }

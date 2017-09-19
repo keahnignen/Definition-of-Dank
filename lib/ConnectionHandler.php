@@ -44,17 +44,20 @@ class ConnectionHandler
         // Prüfen ob bereits eine Verbindung existiert
         if (self::$connection === null) {
             // Konfigurationsdatei auslesen
+
             $config = require '../config.php';
             $host = $config['database']['host'];
             $username = $config['database']['username'];
             $password = $config['database']['password'];
             $database = $config['database']['database'];
             // Verbindung initialisieren
-            self::$connection = new MySQLi($host, $username, $password, $database);
-            if (self::$connection->connect_error) {
-                $error = self::$connection->connect_error;
-                throw new Exception("Verbindungsfehler: $error");
+
+            self::$connection = new mysqli($host, $username, $password, $database);
+            if (mysqli_connect_errno()) {
+                printf("Connect failed: %s\n", mysqli_connect_error());
+                exit();
             }
+
             //self::$connection->set_charset('utf8');
         }
         // Verbindung zurückgeben

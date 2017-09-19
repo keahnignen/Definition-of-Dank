@@ -47,13 +47,9 @@ class UserRepository extends Repository
 
     }
 
-    public function login($username, $password)
+    public function loginSuccesfully($username, $password)
     {
-
-        if (sha1($password) === $this->select('password', $this->tableName, 'username', $username))
-        {
-            echo 'Login was successfully';
-        }
+        return (sha1($password) === $this->select('password', $this->tableName, 'username', $username)) ? true : false;
     }
 
     public function getUserById($id)
@@ -71,5 +67,15 @@ class UserRepository extends Repository
     public function getUserIdByUsername($username)
     {
         return $this->select('id', $this->tableName, 'username', $username);
+    }
+
+    private function isUsernameTaken()
+    {
+
+    }
+
+    private function isEmailTaken()
+    {
+
     }
 }

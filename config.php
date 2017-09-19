@@ -58,5 +58,9 @@ return array(
 
     ),
 
+    'error' => array(
+        'search'    => '<!--IfAnErrorOccurredThanThisStringBecomeReplaced-->'
+    ),
+
 
 );
