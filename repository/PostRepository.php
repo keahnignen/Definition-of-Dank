@@ -25,7 +25,8 @@ class PostRepository extends Repository
 
     public function getAllPosts()
     {
-        return $this->select('postnName, picturePath', $this->tableName, '1', '1', 2);
+        $x = $this->select('postName, picturePath', $this->tableName, '1', '1', 2);
+        return $x;
     }
 
 }

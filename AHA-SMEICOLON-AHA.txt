@@ -1,3 +1,10 @@
 INSERT INTO category (catName) VALUES ('memes');
 INSERT INTO category (catName) VALUES ('nsfw');
 INSERT INTO category (catName) VALUES ('potatoe')
+
+
+INSERT INTO post (postName, picturePath, userId) VALUES ('putin', 'meme2.jpg', 1);
+INSERT INTO post (postName, picturePath, userId) VALUES ('vodka', 'meme3.jpg', 1);
+INSERT INTO post (postName, picturePath, userId) VALUES ('cyka', 'meme4.jpg', 1);
+INSERT INTO post (postName, picturePath, userId) VALUES ('blyat', 'meme5.jpg', 1);
+INSERT INTO post (postName, picturePath, userId) VALUES ('joke', 'meme6.jpg', 1);

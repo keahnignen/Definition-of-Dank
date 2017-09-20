@@ -29,7 +29,6 @@ class FeedController
     public function getAllMemes()
     {
        $x = $this->postRepository->getAllPosts();
-       var_dump($x);
        return $x;
     }
 

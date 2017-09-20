@@ -191,15 +191,17 @@ class Repository
     {
         echo "<script> console.log('select'); </script>";
         $db = ConnectionHandler::getConnection();
-        $query = "SELECT ${select} FROM {$database} WHERE {$where} = ?";
+        $query = "SELECT {$select} FROM {$database} WHERE {$where} = ?";
+
+
+        var_dump($query);
 
         //$query = "SELECT password from user WHERE name = 'kenan'";
         $stmt = $db->prepare($query);
 
         if ($stmt == false)
         {
-            $this->displayErrorPrepareStatement();
-            return null;
+            throw new Exception('Prepare Error');
         }
         else
         {
@@ -208,8 +210,7 @@ class Repository
 
             if (!$stmt->execute())
             {
-                $this->displayErrorExicutionError();
-                return null;
+                throw new Exception('Exicution error');
             }
 
 
@@ -224,8 +225,13 @@ class Repository
                     $obj = array();
                     while($stmt->fetch())
                     {
-                        array_push($obj, $result_column1);
-                        array_push($obj, $result_column2);
+
+                        $x = array (
+                            $result_column1,
+                            $result_column2
+                        );
+
+                        array_push($obj, $x);
                     }
                     break;
                 case 3:
@@ -234,6 +240,8 @@ class Repository
                     $obj = array();
                     while($stmt->fetch())
                     {
+
+
                         array_push($obj, $result_column1);
                         array_push($obj, $result_column2);
                         array_push($obj, $result_column3);
@@ -252,6 +260,9 @@ class Repository
 
 
             $stmt->close();
+
+
+            var_dump($obj);
 
             return $obj;
         }
