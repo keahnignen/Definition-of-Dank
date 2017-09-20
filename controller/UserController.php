@@ -96,6 +96,7 @@ class UserController
                 return;
             }
 
+            //trys to add a user
             if ($this->userRepository->addUser($postList[$userKey], $postList[$emailKey], $postList[$passwordKey])) {
                 $GLOBALS['error'] = 'accout was succesfully created';
                 $this->setSessionId($username);
@@ -111,6 +112,10 @@ class UserController
     }
 
 
+    /**
+     * @param $email string of the email
+     * @return bool if the email is valid
+     */
     private function isEmaiValid($email)
     {
         if ($this->userRepository->isEmailTaken($email)) {
@@ -145,9 +150,10 @@ class UserController
                 $passwordKey => $password
             );
 
+            //check if posts are valid
             if (!$this->arePostValid($postList)) return;
 
-
+            //try to login
             if ($this->userRepository->loginSuccesfully($postList[$userKey], $postList[$passwordKey]))
             {
                 $this->setSessionId($username);
@@ -166,13 +172,19 @@ class UserController
     }
 
 
-
+    /**
+     * @param $error string is an error message which get displayed
+     */
     private function goToLoginWithError($error)
     {
         $GLOBALS['error'] = $error;
         $this->register_login();
     }
 
+    /**
+     * @param $string string
+     * @return bool
+     */
     public function isValid($string)
     {
         $length = 50;
@@ -185,6 +197,10 @@ class UserController
         $_SESSION['userId'] = $this->userRepository->getUserIdByUsername($username);
     }
 
+    /**
+     * @param $posts array strings
+     * @return bool
+     */
     private function arePostValid($posts)
     {
 

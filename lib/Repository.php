@@ -85,113 +85,20 @@ class Repository
     protected $tableName = null;
 
     /**
-     * Diese Funktion gibt den Datensatz mit der gegebenen id zurück.
-     *
-     * @param $id id des gesuchten Datensatzes
-     *
-     * @throws Exception falls das Ausführen des Statements fehlschlägt
-     *
-     * @return Der gesuchte Datensatz oder null, sollte dieser nicht existieren.
-     */
-
-/*
-    public function readById($id)
-    {
-        // Query erstellen
-        $query = "SELECT * FROM {$this->tableName} WHERE id=?";
-
-        // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
-        // und die Parameter "binden"
-        $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('i', $id);
-
-        // Das Statement absetzen
-        $statement->execute();
-
-        // Resultat der Abfrage holen
-        $result = $statement->get_result();
-        if (!$result) {
-            throw new Exception($statement->error);
-        }
-
-        // Ersten Datensatz aus dem Reultat holen
-        $row = $result->fetch_object();
-
-        // Datenbankressourcen wieder freigeben
-        $result->close();
-
-        // Den gefundenen Datensatz zurückgeben
-        return $row;
-    }
-
-
-  */
-    /**
-
-     *
-     * Diese Funktion gibt ein array mit allen Datensätzen aus der Tabelle
-     * zurück.
-     *
-     * @param $max Wie viele Datensätze höchstens zurückgegeben werden sollen
-     *               (optional. standard 100)
-     *
-     * @throws Exception falls das Ausführen des Statements fehlschlägt
-     *
-     * @return Ein array mit den gefundenen Datensätzen.
-     */
-
-/*
-    public function readAll($max = 100)
-    {
-        $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
-
-        $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->execute();
-
-        $result = $statement->get_result();
-        if (!$result) {
-            throw new Exception($statement->error);
-        }
-
-        // Datensätze aus dem Resultat holen und in das Array $rows speichern
-        $rows = array();
-        while ($row = $result->fetch_object()) {
-            $rows[] = $row;
-        }
-
-        return $rows;
-    }
-
-
-    */
-    /**
-     * Diese Funktion löscht den Datensatz mit der gegebenen id.
-     *
-     * @param $id id des zu löschenden Datensatzes
-     *
-     * @throws Exception falls das Ausführen des Statements fehlschlägt
-     * $
-     *
-          * CAUSE NO MYSQLI
-     *
-*/
-
-
-
-    /**
-     * @param $select
-     * @param $database
-     * @param $where
-     * @param $isEqual
+     * @param $select the attribute for a sql select
+     * @param $table
+     * @param $where for intance select bla from bla WHERE =
+     * @param $isEqual the value after where
+     * @param int $numberOfResults the number of "elements" in select
      * @return array
+     * @throws Exception if an prepare or exicution erorr occured
      */
 
-
-    protected function select($select, $database, $where, $isEqual, $numberOfResults = 1)
+    protected function select($select, $table, $where, $isEqual, $numberOfResults = 1)
     {
         echo "<script> console.log('select'); </script>";
         $db = ConnectionHandler::getConnection();
-        $query = "SELECT {$select} FROM {$database} WHERE {$where} = ?";
+        $query = "SELECT {$select} FROM {$table} WHERE {$where} = ?";
 
         //$query = "SELECT password from user WHERE name = 'kenan'";
         $stmt = $db->prepare($query);
@@ -211,6 +118,7 @@ class Repository
                 throw new Exception('Exicution error');
             }
 
+            //for query with muliple select attributes
             switch ($numberOfResults)
             {
                 case 2:

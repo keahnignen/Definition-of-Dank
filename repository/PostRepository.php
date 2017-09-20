@@ -13,16 +13,46 @@ class PostRepository extends Repository
 
     protected $tableName = 'post';
 
-    public function createPost($userId, $picturePath, $catId = 0)
+    /**
+     * @param $postName is a string of the user
+     * @param $picturePath is an string with extention
+     * @param $userId is an integer of the user
+     * @return bool if the insert was succefully
+     * @throws Exception if an Querry Prepare or Exicution error occured
+     */
+    public function createPost($postName, $picturePath, $userId)
     {
-        $date = date('l jS \of F Y h:i:s A');
-        $att = '(picturePath, date, rate, catId, isVerified, userId)';
-        $value = "({$picturePath}, {$date})";
 
-        $this->insert($this->tableName, $att, $value);
+        $attr = '(postName, picturePath, userId)';
+
+
+        $query = "INSERT INTO {$this->tableName} {$attr} VALUES (?, ?, ?)";
+
+
+        $stmt = ConnectionHandler::getConnection()->prepare($query);
+
+        if ($stmt == false)
+        {
+            throw new Exception("Statement prepare Error");
+        }
+        else
+        {
+            $stmt->bind_param('sss', $postName,  $picturePath, $userId);
+
+            if (!$stmt->execute())
+            {
+                throw new Exception("Exicution error");
+            }
+
+            return true;
+        }
 
     }
 
+
+    /**
+     * @return array
+     */
     public function getAllPosts()
     {
         $x = $this->select('postName, picturePath', $this->tableName, '1', '1', 2);

@@ -13,6 +13,7 @@ class ThreadRepository extends Repository
 
     protected $tableName = 'category';
 
+    //Offensichlicher weise gibt diese alle Categorieren zurück
     public function getAllCategorys()
     {
         return $this->select('catName', $this->tableName, '1', '1');
