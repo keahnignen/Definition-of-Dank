@@ -42,14 +42,14 @@
             <li class="navBar"><a style="" class="navBar" href="/feed">Feed</a></li>
             <li><a class="navBar" href="/thread">Threads</a></li>
 			<!--Suchfeld -->
-			<input id="searchBar"type="text" name="search" placeholder="Search..">
+			<input id="searchBar" type="text" name="search" placeholder="Search..">
 			<!--Upload und Anmelden/Benutzer-Seite -->
 			<a href="/user"><i class="glyphicon glyphicon-user"></i></a>
 			
 			
           </ul>
         </div><!--/.nav-collapse -->
-      </div>
+      
     </nav>
 
     
