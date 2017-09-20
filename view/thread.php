@@ -2,7 +2,7 @@
 
 
 $tc = new ThreadController();
-
+//category
 foreach ($tc->getAllCategorys() as $category)
 {
     echo "
