@@ -129,15 +129,12 @@ class UserController
                 $passwordKey => $password
             );
 
-            var_dump($postList[$userKey]);
-            var_dump($postList[$passwordKey]);
-
             if (!$this->arePostValid($postList)) return;
 
 
             if ($this->userRepository->loginSuccesfully($postList[$userKey], $postList[$passwordKey]))
             {
-                $this->setSessionId();
+                $this->setSessionId($username);
                 $this->index();
             }
             else

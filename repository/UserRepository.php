@@ -63,8 +63,12 @@ class UserRepository extends Repository
 
     public function loginSuccesfully($username, $password)
     {
-        var_dump($username);
-        return (sha1($password) === $this->select('password', $this->tableName, 'username', $username)) ? true : false;
+        var_dump(sha1($password));
+        foreach ( $this->select('password', $this->tableName, 'name', $username) as $pw)
+        {
+            return (sha1($password) == $pw) ? true : false;
+        }
+        return false;
     }
 
     public function getUserById($id)
@@ -81,12 +85,12 @@ class UserRepository extends Repository
 
     public function getUserIdByUsername($username)
     {
-        return $this->select('id', $this->tableName, 'username', $username);
+        return $this->select('id', $this->tableName, 'name', $username);
     }
 
     public function isUsernameTaken($username)
     {
-        return ($this->select('username', $this->tableName, 'username', $username) == null) ? false : true;
+        return ($this->select('username', $this->tableName, 'name', $username) == null) ? false : true;
     }
 
     public function isEmailTaken($email)
