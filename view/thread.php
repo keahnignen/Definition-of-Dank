@@ -1,50 +1,16 @@
 <?php
-echo "
-    
+
+
+$tc = new ThreadController();
+
+foreach ($tc->getAllCategorys() as $category)
+{
+    echo "
     <div class=\"thpost thpost1\">
-        <img class=\"thbilder\" src=\"..\\images\\meme.jpg\" alt=\"Bild Fehler\" >
-    </div>"
+        <p>{$category}</p>
+        <img class=\"thbilder\" src=\"/images/{$category}.jpg\" alt=\"Bild Fehler\" >
+    </div>";
+}
 
-<div class="thpost thpost1">
-	<img class="thbilder" src="/images/meme2.jpg" alt="Bild Fehler" >
-</div>
 
-<div class="thpost">
-	<img class="thbilder" src="/images/meme3.jpg" alt="Bild Fehler" >
-</div>
 
-<div class="thpost thpost1">
-	<img class="thbilder" src="/images/meme4.jpg" alt="Bild Fehler" >
-</div>
-
-<div class="thpost thpost1">
-	<img class="thbilder" src="/images/meme5.jpg" alt="Bild Fehler" >
-</div>
-
-<div class="thpost">
-	<img class="thbilder" src="/images/meme6.jpg" alt="Bild Fehler" >
-</div>
-
-<div class="thpost thpost1">
-	<img class="thbilder" src="/images/meme.jpg" alt="Bild Fehler" >
-</div>
-
-<div class="thpost thpost1">
-	<img class="thbilder" src="/images/meme2.jpg" alt="Bild Fehler" >
-</div>
-
-<div class="thpost">
-	<img class="thbilder" src="/images/meme3.jpg" alt="Bild Fehler" >
-</div>
-
-<div class="thpost thpost1">
-	<img class="thbilder" src="/images/meme4.jpg" alt="Bild Fehler" >
-</div>
-
-<div class="thpost thpost1">
-	<img class="thbilder" src="/images/meme5.jpg" alt="Bild Fehler" >
-</div>
-
-<div class="thpost">
-	<img class="thbilder" src="/images/meme6.jpg" alt="Bild Fehler" >
-</div>
