@@ -1,6 +1,9 @@
-<div class="thpost thpost1">
-	<img class="thbilder" src="/images/meme.jpg" alt="Bild Fehler" >
-</div>
+<?php
+echo "
+    
+    <div class=\"thpost thpost1\">
+        <img class=\"thbilder\" src=\"..\\images\\meme.jpg\" alt=\"Bild Fehler\" >
+    </div>"
 
 <div class="thpost thpost1">
 	<img class="thbilder" src="/images/meme2.jpg" alt="Bild Fehler" >
