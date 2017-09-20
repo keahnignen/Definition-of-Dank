@@ -197,17 +197,15 @@ class Repository
 
         if ($stmt == false)
         {
-            $GLOBALS['error'] = 'db->prepare error';
-            echo 'error_fukinh prepare';
-
-            die();
+            $this->displayErrorPrepareStatement();
+            return null;
         }
         else
         {
             $stmt->bind_param('sss', $select, $where, $isEqual);
             if (!$stmt->execute())
             {
-                echo "<script> console.log('exicution error'); </script>";
+                $this->displayErrorExicutionError();
                 return null;
             }
             $obj = [];
@@ -218,55 +216,82 @@ class Repository
             var_dump($obj);
             return $obj;
         }
-
-        echo "<script> console.log('line 213a3'); </script>";
-        $js = require_once '../controller/console.js';
-        $js.console('test');
-/*
-        $query = "SELECT ? FROM ? WHERE `?` = `?`";
-        var_dump($isEqual);
-        $stmt = $db->prepare($query);
-         var_dump($query);
-        */
-
     }
 
     protected function insert($tables, $attributes, $values)
     {
-        $db = ConnectionHandler::getConnection();
-        $stmt = $db->prepare("INSERT INTO {$tables} ? VALUES ?");
+        $stmt = ConnectionHandler::getConnection()->prepare("INSERT INTO {$tables} ? VALUES ?");
 
-
-        if ($stmt == false)
+        if ($stmt == null)
         {
-            $this->goToLoginWithError('88');
-            $GLOBALS['error'] = 'db->prepare error';
-            echo 'error_fuking prepare';
+            $this->displayErrorPrepareStatement();
+            return false;
         }
         else
         {
             $stmt->bind_param('ss', $attributes, $values);
+
+            if (!$stmt->execute())
+            {
+                $this->displayErrorExicutionError();
+                return true;
+            }
+            return true;
         }
 
-        if (!$stmt->execute()) return null;
-        return true;
     }
 
     public function update($table, $setName, $setValue, $whereName, $whereValue) {
-        $stmt = ConnectionHandler::getConnection()->prepare(`UPDATE ? SET ? = ? WHERE ? = ?`);
-        $stmt->bind_param('sssss', $table, $setName, $setValue, $whereName, $whereValue);
-        if (!$stmt->execute()) return false;
-        return true;
+        $stmt = ConnectionHandler::getConnection()->prepare("UPDATE {$table} SET ? = ? WHERE ? = ?");
+
+        if ($stmt == false)
+        {
+            $this->displayErrorPrepareStatement();
+            return false;
+        }
+        else
+            {
+                $stmt->bind_param('ssss', $setName, $setValue, $whereName, $whereValue);
+
+                if (!$stmt->execute()) {
+                    $this->displayErrorExicutionError();
+                    return true;
+                }
+                return false;
+            }
     }
 
     public function delete($table, $whereName, $whereValue)
     {
-        $stmt = mysqli_stmt_init();
-        $stmt->prepare(`DELETE FROM ? WHERE ? = ?`);
-        $stmt->bind_param('sss', $table, $whereName, $whereValue);
-        if (!$stmt->execute()) return false;
-        return true;
+        $stmt = ConnectionHandler::getConnection()->prepare("DELETE FROM {$table} WHERE ? = ?");
+
+        if ($stmt == false)
+        {
+            $this->displayErrorPrepareStatement();
+            return false;
+        }
+        else
+        {
+            $stmt->bind_param('ss', $whereName, $whereValue);
+            if (!$stmt->execute())
+            {
+                $this->displayErrorExicutionError();
+                return false;
+            }
+            return true;
+        }
     }
+
+    private function displayErrorPrepareStatement()
+    {
+        echo "<script> console.log('statemen prepare error'); </script>";
+    }
+
+    private function displayErrorExicutionError()
+    {
+        echo "<script> console.log('statemen prepare error'); </script>";
+    }
+
 
 
 }
