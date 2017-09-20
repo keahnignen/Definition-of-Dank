@@ -86,14 +86,12 @@ class UserController
             }
 
 
-
-            
-
             if ($this->userRepository->isUsernameTaken($username)) {
-                $this->register_login();
-                //$this->goToLoginWithError('Username is Taken');
+
+                $this->goToLoginWithError('Username is Taken');
                 return;
             }
+
 
             if ($this->userRepository->isEmailTaken($email)) {
                 //$this->goToLoginWithError('Email is Takesdn');

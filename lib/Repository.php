@@ -187,27 +187,41 @@ class Repository
 
     protected function select($select, $database, $where, $isEqual)
     {
+
+
         $db = ConnectionHandler::getConnection();
         $query = "SELECT ? FROM {$database} WHERE ? = ?";
         $stmt = $db->prepare($query);
+
+        echo "<script> console.log('line 213a1'); </script>";
 
         if ($stmt == false)
         {
             $GLOBALS['error'] = 'db->prepare error';
             echo 'error_fukinh prepare';
+
             die();
         }
-        else{
+        else
+        {
             $stmt->bind_param('sss', $select, $where, $isEqual);
-            if (!$stmt->execute()) return null;
+            if (!$stmt->execute())
+            {
+                echo "<script> console.log('exicution error'); </script>";
+                return null;
+            }
             $obj = [];
+
             $stmt->bind_result($obj);
-            if (!$stmt->fetch()) return null;
+            $stmt->fetch();
+
             var_dump($obj);
-            die();
             return $obj;
         }
 
+        echo "<script> console.log('line 213a3'); </script>";
+        $js = require_once '../controller/console.js';
+        $js.console('test');
 /*
         $query = "SELECT ? FROM ? WHERE `?` = `?`";
         var_dump($isEqual);
@@ -225,6 +239,7 @@ class Repository
 
         if ($stmt == false)
         {
+            $this->goToLoginWithError('88');
             $GLOBALS['error'] = 'db->prepare error';
             echo 'error_fuking prepare';
         }
