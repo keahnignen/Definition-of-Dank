@@ -94,7 +94,7 @@ class Repository
      * @return Der gesuchte Datensatz oder null, sollte dieser nicht existieren.
      */
 
-
+/*
     public function readById($id)
     {
         // Query erstellen
@@ -125,6 +125,7 @@ class Repository
     }
 
 
+  */
     /**
 
      *
@@ -139,7 +140,7 @@ class Repository
      * @return Ein array mit den gefundenen Datensätzen.
      */
 
-
+/*
     public function readAll($max = 100)
     {
         $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
@@ -162,6 +163,7 @@ class Repository
     }
 
 
+    */
     /**
      * Diese Funktion löscht den Datensatz mit der gegebenen id.
      *
@@ -187,13 +189,10 @@ class Repository
 
     protected function select($select, $database, $where, $isEqual)
     {
-
-
+        echo "<script> console.log('select'); </script>";
         $db = ConnectionHandler::getConnection();
         $query = "SELECT ? FROM {$database} WHERE ? = ?";
         $stmt = $db->prepare($query);
-
-        echo "<script> console.log('line 213a1'); </script>";
 
         if ($stmt == false)
         {
@@ -218,18 +217,34 @@ class Repository
         }
     }
 
-    protected function insert($tables, $attributes, $values)
+    //this method will use if it time
+    protected function insert($tables, $attributes, $array)
     {
-        $stmt = ConnectionHandler::getConnection()->prepare("INSERT INTO {$tables} ? VALUES ?");
 
-        if ($stmt == null)
+        $types = '';
+
+        $query = "INSERT INTO {$tables} {$attributes} VALUES (";
+        foreach ($array as $key => $item)
+        {
+            if ($key === 0)
+                $query .= '?';
+            $query .= ', ?';
+            $types .= 's';
+        }
+        $query .= ')';
+
+        $values = "$types, $query";
+
+        $stmt = ConnectionHandler::getConnection()->prepare($query);
+
+        if ($stmt == false)
         {
             $this->displayErrorPrepareStatement();
             return false;
         }
         else
         {
-            $stmt->bind_param('ss', $attributes, $values);
+            $stmt->bind_param($types, $values);
 
             if (!$stmt->execute())
             {
@@ -289,9 +304,7 @@ class Repository
 
     private function displayErrorExicutionError()
     {
-        echo "<script> console.log('statemen prepare error'); </script>";
+        echo "<script> console.log('statemen execution error'); </script>";
     }
-
-
 
 }

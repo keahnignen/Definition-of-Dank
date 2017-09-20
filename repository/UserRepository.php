@@ -34,16 +34,29 @@ class UserRepository extends Repository
     {
         $password = sha1($password);
 
+        $attr = '(name, password, email)';
 
-        $attr = '(name, password, email, isAdmin)';
-        $value = "('{$username}', '{$password}', '{$email}', 0)";
+        $query = "INSERT INTO {$this->tableName} {$attr} VALUES (?, ?, ?)";
 
 
-        if (!$this->insert($this->tableName, $attr, $value)) {
-            throw new Exception("Can't create a new User");
+        $stmt = ConnectionHandler::getConnection()->prepare($query);
+
+        if ($stmt == false)
+        {
+            throw new Exception("Statement prepare Error");
+        }
+        else
+        {
+            $stmt->bind_param('sss', $username,  $password, $email);
+
+            if (!$stmt->execute())
+            {
+                throw new Exception("Exicution error");
+            }
+            return true;
         }
 
-        echo 'Create user was successfully';
+
 
     }
 
@@ -72,19 +85,11 @@ class UserRepository extends Repository
 
     public function isUsernameTaken($username)
     {
-        if ($this->select('email', $this->tableName, 'username', 'email@iet.ch') == null)
-        {
-            echo 'good';
-        }
-        else
-        {
-            echo 'no good';
-        }
-        //return (empty($this->select('email', $this->tableName, 'username', $username))) ? true : false;
+        return ($this->select('username', $this->tableName, 'username', $username) == null) ? false : true;
     }
 
     public function isEmailTaken($email)
     {
-        return (empty($this->select('email', $this->tableName, 'email', $email))) ? true : false;
+        return ($this->select('email', $this->tableName, 'email', $email) == null) ? false : true;
     }
 }
