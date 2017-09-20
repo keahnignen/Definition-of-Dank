@@ -209,6 +209,7 @@ input{
 }
 
 .profile-usermenu ul li a {
+	text-align:center;
   color: #008d05;
   font-size: 14px;
   font-weight: 400;

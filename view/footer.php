@@ -1,3 +1,4 @@
+<!--zeigt den footer an-->
         <hr>
         <footer>
           <p>&copy; ICT Berufsbildungcenter AG 2016</p>

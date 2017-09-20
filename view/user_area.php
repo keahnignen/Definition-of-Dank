@@ -1,3 +1,4 @@
+<!--Bilder hochladen-->
 <ul class="thumbnails">
     <li class="col-sm-3">
         <div class="fff">
@@ -29,7 +30,7 @@
 			<!-- SIDEBAR MENU -->
 			<div class="profile-usermenu">
 				<ul class="nav">
-					<li class="active">
+					<!--<li class="active">
 						<a href="#">
 						<i class="glyphicon glyphicon-home"></i>
 						New Picture </a>
@@ -48,9 +49,9 @@
 						<a href="#">
 						<i class="glyphicon glyphicon-flag"></i>
 						Delete Account </a>
-					</li>
+					</li>-->
 					<li>
-						<a href="#">
+						<a href="/user/logout">
 						<i class="glyphicon glyphicon-log-out"></i>
 						Log Out </a>
 					</li>
