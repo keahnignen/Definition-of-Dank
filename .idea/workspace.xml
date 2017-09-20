@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d2a6c48-ff42-433b-870d-92771c37dd24" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Repository.php" afterPath="$PROJECT_DIR$/lib/Repository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/repository/UserRepository.php" afterPath="$PROJECT_DIR$/repository/UserRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/user_area.php" afterPath="$PROJECT_DIR$/view/user_area.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AHA-SMEICOLON-AHA.txt" afterPath="$PROJECT_DIR$/AHA-SMEICOLON-AHA.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,8 +27,8 @@
       <file leaf-file-name="Repository.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/Repository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="193" column="72" lean-forward="false" selection-start-line="193" selection-start-column="72" selection-end-line="193" selection-end-column="72" />
+            <state relative-caret-position="736">
+              <caret line="224" column="43" lean-forward="true" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
               <folding>
                 <marker date="1505910420928" expanded="true" signature="3797:3840" ph="SELECT * FRO... $" />
                 <marker date="1505910420928" expanded="true" signature="5019:5061" ph="SELECT * FRO... $" />
@@ -338,12 +336,12 @@
       <workItem from="1505414157721" duration="2925000" />
       <workItem from="1505731953689" duration="12402000" />
       <workItem from="1505802457358" duration="20194000" />
-      <workItem from="1505887366249" duration="19980000" />
+      <workItem from="1505887366249" duration="21041000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65162000" />
+    <option name="totallyTimeSpent" value="66223000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -573,7 +571,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1505904992851" expanded="true" signature="2050:2127" ph="..." />
+            <marker date="1505911496792" expanded="true" signature="2050:2127" ph="..." />
           </folding>
         </state>
       </provider>
@@ -659,7 +657,7 @@
         <state relative-caret-position="630">
           <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding>
-            <marker date="1505904992858" expanded="true" signature="1389:1709" ph="..." />
+            <marker date="1505911496799" expanded="true" signature="1389:1709" ph="..." />
           </folding>
         </state>
       </provider>
@@ -762,8 +760,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Repository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="193" column="72" lean-forward="false" selection-start-line="193" selection-start-column="72" selection-end-line="193" selection-end-column="72" />
+        <state relative-caret-position="736">
+          <caret line="224" column="43" lean-forward="true" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
           <folding>
             <marker date="1505910420928" expanded="true" signature="3797:3840" ph="SELECT * FRO... $" />
             <marker date="1505910420928" expanded="true" signature="5019:5061" ph="SELECT * FRO... $" />

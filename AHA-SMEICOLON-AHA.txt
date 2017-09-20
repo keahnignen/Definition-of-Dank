@@ -8,3 +8,9 @@ INSERT INTO post (postName, picturePath, userId) VALUES ('vodka', 'meme3.jpg', 1
 INSERT INTO post (postName, picturePath, userId) VALUES ('cyka', 'meme4.jpg', 1);
 INSERT INTO post (postName, picturePath, userId) VALUES ('blyat', 'meme5.jpg', 1);
 INSERT INTO post (postName, picturePath, userId) VALUES ('joke', 'meme6.jpg', 1);
+
+INSERT INTO post (postName, picturePath, userId) VALUES ('trump', 'meme7.jpg', 1);
+INSERT INTO post (postName, picturePath, userId) VALUES ('hillery', 'meme8.jpg', 1);
+INSERT INTO post (postName, picturePath, userId) VALUES ('toyota', 'meme9.jpg', 1);
+INSERT INTO post (postName, picturePath, userId) VALUES ('kurwa', 'meme10.jpg', 1);
+INSERT INTO post (postName, picturePath, userId) VALUES ('???', 'meme11.jpg', 1);
