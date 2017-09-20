@@ -1,6 +1,6 @@
 
 <div class="row col-md-8 col-md-offset-2 registeration">
-    
+    <!--Sign Up-->
 <div class="registerInner">
         <div class="col-md-6 signUp">
             <h3 class="headerSign">Sign Up</h3>
@@ -27,7 +27,7 @@
         </div>
 
              
-             
+        <!--Sign In-->     
         <div class ="col-md-6">
             <h3 class="headerSign">Sign In</h3> 
             <form action="/user/login" method="post">

@@ -31,7 +31,10 @@
             <span class="icon-bar"></span>
 		
           </button>
-		  <img class="Logo" src="/images/dankLogo.png" alt="Bild Fehler!">
+		  <!--Hier das Bild im Header welches auf die Startseite zurück weist-->
+		  <a href="../"><img href="/thread" class="Logo" src="/images/dankLogo.png" alt="Bild Fehler!"></a>
+		  
+		  
         </div>
         <div id="navbar" class="navibBar">
           <ul class="nav navbar-nav" id="naviBar">
