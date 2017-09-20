@@ -98,7 +98,7 @@ class UserController
                 return;
             }
 
-            if ($this->userRepository->addUser($postList[$userKey], $postList[$passwordKey], $postList[$emailKey])) {
+            if ($this->userRepository->addUser($postList[$userKey], $postList[$emailKey], $postList[$passwordKey])) {
                 $GLOBALS['error'] = 'accout was succesfully created';
                 $this->setSessionId($username);
                 $this->index();

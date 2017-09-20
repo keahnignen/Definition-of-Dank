@@ -53,6 +53,7 @@ class UserRepository extends Repository
             {
                 throw new Exception("Exicution error");
             }
+
             return true;
         }
 
