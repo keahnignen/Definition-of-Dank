@@ -1,10 +1,9 @@
 <ul class="thumbnails">
     <li class="col-sm-3">
-        <P class="upload_title">Upload the Meme here</P>
         <div class="fff">
 			<form action="/post/createPost" method="post" enctype="multipart/form-data">
-				<input type="file" name="fileToUpload" id="fileToUpload">
-				<input class="btn btn-primary uploadbutton" type="submit" value="Upload Image" name="submit">
+				<div class=""><input type="file" name="fileToUpload" id="fileToUpload"></div>
+				<input class="btn btn-primary uploadbutton" type="submit" value="Upload Image" name="submit" style="margin-left: 0px;">
 			</form>
         </div>
     </li>
@@ -23,9 +22,7 @@
 				<div class="profile-usertitle-name">
 					Marcus Doe
 				</div>
-				<div class="profile-usertitle-job">
-					Developer
-				</div>
+				
 			</div>
 			<!-- END SIDEBAR USER TITLE -->
 
@@ -51,6 +48,11 @@
 						<a href="#">
 						<i class="glyphicon glyphicon-flag"></i>
 						Delete Account </a>
+					</li>
+					<li>
+						<a href="#">
+						<i class="glyphicon glyphicon-log-out"></i>
+						Log Out </a>
 					</li>
 				</ul>
 			</div>

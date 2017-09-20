@@ -5,7 +5,7 @@ body {
 
 }
 h1{
-	color:#27CA45;
+	color:#008d05;
 }
 
 .Logo{
@@ -145,7 +145,7 @@ input{
 /* Profile sidebar */
 .profile-sidebar {
   padding: 20px 0 10px 0;
-  background: #fff;
+  background: #f1f1f1;
 }
 
 .profile-userpic img {
@@ -197,6 +197,7 @@ input{
     
 .profile-usermenu {
   margin-top: 30px;
+  color: #27ca45;
 }
 
 .profile-usermenu ul li {
@@ -208,7 +209,7 @@ input{
 }
 
 .profile-usermenu ul li a {
-  color: #93a3b5;
+  color: #008d05;
   font-size: 14px;
   font-weight: 400;
 }
@@ -216,6 +217,7 @@ input{
 .profile-usermenu ul li a i {
   margin-right: 8px;
   font-size: 14px;
+  color:#008d05;
 }
 
 .profile-usermenu ul li a:hover {
@@ -262,8 +264,13 @@ li { list-style-type:none;}
 		
 }
 
-.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9{
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9{
 	float:none;
+}
+
+.col-sm-3{
+	float:right;
+	margin-right: 620px;
 }
 
 .bild{
@@ -326,3 +333,21 @@ li { list-style-type:none;}
 .col-md-6 {
     width: 60%;
 }
+
+.profile-usermenu ul li.active a {
+    color: #008d05;
+}
+
+
+#fileToUpload
+{
+	background-color: white;
+	padding: 100px 100px 100px 100px;
+	margin-bottom: 50px;
+}
+
+.btn btn-primary uploadbutton
+{
+	margin-left: 0 !important;
+}
+
