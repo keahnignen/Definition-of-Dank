@@ -17,7 +17,7 @@ class PostRepository extends Repository
         $att = '(picturePath, date, rate, catId, isVerified, userId)';
         $value = "({$picturePath}, {$date})";
 
-        $this->insert($this->tableName, $att, $value);
+        //$this->insert($this->tableName, $att, $value);
 
     }
 
