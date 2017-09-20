@@ -1,7 +1,11 @@
 body {
   padding-top: 70px;
  margin-left: 130px;
+ background-color: #f1f1f1;
 
+}
+h1{
+	color:#27CA45;
 }
 
 .Logo{
@@ -11,6 +15,10 @@ body {
 	
 .navbar-inverse{
 	background-color:#27CA45;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #f1f1f1;
 }
 
 #naviBar{
@@ -112,6 +120,7 @@ input{
 
 .navbar{
 	margin-bottom:0px;
+	color:#9d9d9d;
 }
 
 .post {
@@ -307,4 +316,13 @@ li { list-style-type:none;}
 }
 .thpost1{
 	float: left;
+}
+
+.glyphicon{
+	margin-left: 10px;
+	color: #f1f1f1;
+}
+
+.col-md-6 {
+    width: 60%;
 }

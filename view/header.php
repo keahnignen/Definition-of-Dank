@@ -37,7 +37,7 @@
           <ul class="nav navbar-nav" id="naviBar">
 			<!--CSS Fehlt noch, konnte leider nicht eingebunden werden ausser mit Style -->
             <li class="navBar"><a style="" class="navBar" href="/feed">Feed</a></li>
-            <li><a class="blackCockDown" href="/thread">Threads</a></li>
+            <li><a class="navBar" href="/thread">Threads</a></li>
 			<!--Suchfeld -->
 			<input id="searchBar"type="text" name="search" placeholder="Search..">
 			<!--Upload und Anmelden/Benutzer-Seite -->
