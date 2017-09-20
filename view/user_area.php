@@ -20,8 +20,19 @@
 			<!-- END SIDEBAR USERPIC -->
 			<!-- SIDEBAR USER TITLE -->
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">
-					Marcus Doe
+
+                <div class="profile-usertitle-name">
+                <?php
+
+                    $user = new UserRepository();
+                    $x = 'Bob Marley';
+                    foreach ($user->usernameById($_SESSION['userId'][0]) as $x)
+                    {
+                        echo $x;
+                    }
+
+
+                ?>
 				</div>
 				
 			</div>

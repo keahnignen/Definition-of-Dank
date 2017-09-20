@@ -87,11 +87,16 @@ class UserRepository extends Repository
 
     public function isUsernameTaken($username)
     {
-        return ($this->select('username', $this->tableName, 'name', $username) == null) ? false : true;
+        return ($this->select('name', $this->tableName, 'name', $username) == null) ? false : true;
     }
 
     public function isEmailTaken($email)
     {
         return ($this->select('email', $this->tableName, 'email', $email) == null) ? false : true;
+    }
+
+    public function usernameById($id)
+    {
+        return $this->select('name', $this->tableName, 'id', $id);
     }
 }

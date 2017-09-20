@@ -193,9 +193,6 @@ class Repository
         $db = ConnectionHandler::getConnection();
         $query = "SELECT {$select} FROM {$database} WHERE {$where} = ?";
 
-
-        var_dump($query);
-
         //$query = "SELECT password from user WHERE name = 'kenan'";
         $stmt = $db->prepare($query);
 
@@ -208,14 +205,11 @@ class Repository
             //$stmt->bind_param('sss', $select, $where, $isEqual);
             $stmt->bind_param('s', $isEqual);
 
+
             if (!$stmt->execute())
             {
                 throw new Exception('Exicution error');
             }
-
-
-
-            var_dump($numberOfResults);
 
             switch ($numberOfResults)
             {
@@ -262,7 +256,7 @@ class Repository
             $stmt->close();
 
 
-            var_dump($obj);
+            //var_dump($obj);
 
             return $obj;
         }
