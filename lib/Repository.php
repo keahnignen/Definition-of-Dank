@@ -191,7 +191,9 @@ class Repository
     {
         echo "<script> console.log('select'); </script>";
         $db = ConnectionHandler::getConnection();
-        $query = "SELECT ? FROM {$database} WHERE ? = ?";
+        $query = "SELECT ${select} FROM {$database} WHERE {$where} = ?";
+
+        //$query = "SELECT password from user WHERE name = 'kenan'";
         $stmt = $db->prepare($query);
 
         if ($stmt == false)
@@ -201,16 +203,24 @@ class Repository
         }
         else
         {
-            $stmt->bind_param('sss', $select, $where, $isEqual);
+            //$stmt->bind_param('sss', $select, $where, $isEqual);
+            $stmt->bind_param('s', $isEqual);
+
             if (!$stmt->execute())
             {
                 $this->displayErrorExicutionError();
                 return null;
             }
-            $obj = [];
 
-            $stmt->bind_result($obj);
-            $stmt->fetch();
+            $stmt->bind_result($result_column);
+
+            $obj = array();
+            while($stmt->fetch())
+            {
+                array_push($obj, $result_column);
+            }
+
+            $stmt->close();
 
             var_dump($obj);
             return $obj;
