@@ -80,7 +80,7 @@ html,body{
 
 .signbuttons{
     margin-bottom: 35px;
-    background: #2196f3;
+    background: #27ca45;
     border: none;
 }
 
@@ -88,7 +88,7 @@ input{
     border-top: none !important;
     border-right: none !important;
     border-left: none !important;
-    border-bottom: 1px dotted #2196f3 !important;
+    border-bottom: 1px dotted #27ca45 !important;
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
@@ -97,13 +97,13 @@ input{
 }
 
 .headerSign{
-    color: #2196f3;
+    color: #27ca45;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .darktext{
-    color: #2196f3;
+    color: #27ca45;
 }
 
 .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
