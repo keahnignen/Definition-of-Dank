@@ -187,7 +187,7 @@ class Repository
      */
 
 
-    protected function select($select, $database, $where, $isEqual)
+    protected function select($select, $database, $where, $isEqual, $numberOfResults = 1)
     {
         echo "<script> console.log('select'); </script>";
         $db = ConnectionHandler::getConnection();
@@ -212,17 +212,47 @@ class Repository
                 return null;
             }
 
-            $stmt->bind_result($result_column);
 
-            $obj = array();
-            while($stmt->fetch())
+
+            var_dump($numberOfResults);
+
+            switch ($numberOfResults)
             {
-                array_push($obj, $result_column);
+                case 2:
+                    $stmt->bind_result($result_column1, $result_column2);
+
+                    $obj = array();
+                    while($stmt->fetch())
+                    {
+                        array_push($obj, $result_column1);
+                        array_push($obj, $result_column2);
+                    }
+                    break;
+                case 3:
+                    $stmt->bind_result($result_column1, $result_column2, $result_column3);
+
+                    $obj = array();
+                    while($stmt->fetch())
+                    {
+                        array_push($obj, $result_column1);
+                        array_push($obj, $result_column2);
+                        array_push($obj, $result_column3);
+                    }
+                    break;
+                default:
+                    $stmt->bind_result($result_column);
+
+                    $obj = array();
+                    while($stmt->fetch())
+                    {
+                        array_push($obj, $result_column);
+                    }
+                    break;
             }
+
 
             $stmt->close();
 
-            var_dump($obj);
             return $obj;
         }
     }
