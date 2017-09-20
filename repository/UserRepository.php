@@ -57,8 +57,6 @@ class UserRepository extends Repository
             return true;
         }
 
-
-
     }
 
     public function loginSuccesfully($username, $password)
